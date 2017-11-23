@@ -1,8 +1,8 @@
 @extends ('layouts.app')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="card">
+        <div class="card-body">
             @include('common.errors')
             <form action="{{ url('task') }}" method="post" class="form-horizontal">
                 <div class="form-group">
@@ -24,4 +24,25 @@
             </form>
         </div>
     </div>
+    <br>
+    @if($tasks->count())
+        <div class="card card-default">
+            <div class="card-header">
+                Current tasks
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tbody>
+                        @foreach($tasks as $task)
+                            <tr>
+                                <td>
+                                    {{ $task->name }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
 @endsection
