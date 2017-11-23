@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-
+	return view('tasks.index');
 });
 
 Route::post('/task', function (){
