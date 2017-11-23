@@ -38,6 +38,13 @@
                                 <td>
                                     {{ $task->name }}
                                 </td>
+                                <td>
+                                    <form action="{{ url('task/'.$task->id) }}" method="post">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
